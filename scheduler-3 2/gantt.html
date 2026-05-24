@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harmony Production Schedule — Gantt Chart</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #F1F5F9;
+    color: #1E293B;
+    padding: 32px;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #0F172A;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #64748B;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .kpi-item {
+    background: #F8FAFC;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .kpi-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0F172A;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .kpi-label {
+    font-size: 12px;
+    color: #64748B;
+    font-weight: 500;
+  }
+  .kpi-good  { color: #10B981; }
+  .kpi-warn  { color: #F59E0B; }
+  .kpi-bad   { color: #EF4444; }
+  .gantt-wrap { overflow-x: auto; }
+  .gantt-wrap svg { min-width: 700px; width: 100%; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #F1F5F9;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #475569;
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .util-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .util-res {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    width: 70px;
+    flex-shrink: 0;
+  }
+  .util-bar-bg {
+    flex: 1;
+    background: #F1F5F9;
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .util-bar {
+    height: 100%;
+    background: #4A90D9;
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
+  .util-pct {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    width: 36px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>Harmony Production Schedule</h1>
+<p class="subtitle">Generated 2026-05-24 19:59 · 
+Solver status: <strong>optimal</strong></p>
+
+<div class="card">
+  <h2>KPI Summary</h2>
+  <div class="kpi-grid">
+    <div class="kpi-item">
+      <div class="kpi-value kpi-good">
+        0
+      </div>
+      <div class="kpi-label">Tardiness (min)</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-value">150</div>
+      <div class="kpi-label">Makespan (min)</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-value">4</div>
+      <div class="kpi-label">Changeovers</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-value">80</div>
+      <div class="kpi-label">Changeover (min)</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Schedule</h2>
+  <div class="gantt-wrap">
+    <svg viewBox="0 0 1030 298" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; background:#F9FAFB; border-radius:12px;">
+<rect width="1030" height="298" fill="#F9FAFB" rx="12"/>
+<rect x="90" y="50" width="900" height="52" fill="#F3F4F6"/>
+<rect x="90" y="102" width="900" height="52" fill="#F9FAFB"/>
+<rect x="90" y="154" width="900" height="52" fill="#F3F4F6"/>
+<rect x="90" y="206" width="900" height="52" fill="#F9FAFB"/>
+<line x1="90.0" y1="50" x2="90.0" y2="278" stroke="#E5E7EB" stroke-width="1"/>
+<text x="90.0" y="42" text-anchor="middle" font-size="11" fill="#9CA3AF">08:00</text>
+<line x1="270.0" y1="50" x2="270.0" y2="278" stroke="#E5E7EB" stroke-width="1"/>
+<text x="270.0" y="42" text-anchor="middle" font-size="11" fill="#9CA3AF">08:30</text>
+<line x1="450.0" y1="50" x2="450.0" y2="278" stroke="#E5E7EB" stroke-width="1"/>
+<text x="450.0" y="42" text-anchor="middle" font-size="11" fill="#9CA3AF">09:00</text>
+<line x1="630.0" y1="50" x2="630.0" y2="278" stroke="#E5E7EB" stroke-width="1"/>
+<text x="630.0" y="42" text-anchor="middle" font-size="11" fill="#9CA3AF">09:30</text>
+<line x1="810.0" y1="50" x2="810.0" y2="278" stroke="#E5E7EB" stroke-width="1"/>
+<text x="810.0" y="42" text-anchor="middle" font-size="11" fill="#9CA3AF">10:00</text>
+<line x1="990.0" y1="50" x2="990.0" y2="278" stroke="#E5E7EB" stroke-width="1"/>
+<text x="990.0" y="42" text-anchor="middle" font-size="11" fill="#9CA3AF">10:30</text>
+<text x="82" y="80" text-anchor="end" font-size="12" font-weight="600" fill="#374151">Fill-1</text>
+<text x="82" y="132" text-anchor="end" font-size="12" font-weight="600" fill="#374151">Fill-2</text>
+<text x="82" y="184" text-anchor="end" font-size="12" font-weight="600" fill="#374151">Label-1</text>
+<text x="82" y="236" text-anchor="end" font-size="12" font-weight="600" fill="#374151">Pack-1</text>
+<rect x="270.0" y="58" width="120.0" height="36" fill="#E05C5C" opacity="0.25" rx="3"/>
+<text x="330.0" y="80.0" text-anchor="middle" font-size="9" fill="#E05C5C" font-weight="600">CO 20m</text>
+<rect x="510.0" y="162" width="120.0" height="36" fill="#E05C5C" opacity="0.25" rx="3"/>
+<text x="570.0" y="184.0" text-anchor="middle" font-size="9" fill="#E05C5C" font-weight="600">CO 20m</text>
+<rect x="480.0" y="214" width="300.0" height="36" fill="#E05C5C" opacity="0.25" rx="3"/>
+<text x="630.0" y="236.0" text-anchor="middle" font-size="9" fill="#E05C5C" font-weight="600">CO 50m</text>
+<rect x="870.0" y="214" width="30.0" height="36" fill="#E05C5C" opacity="0.25" rx="3"/>
+<text x="885.0" y="236.0" text-anchor="middle" font-size="9" fill="#E05C5C" font-weight="600">CO 5m</text>
+<rect x="240.0" y="110" width="120.0" height="36" fill="#E05C5C" opacity="0.25" rx="3"/>
+<text x="300.0" y="132.0" text-anchor="middle" font-size="9" fill="#E05C5C" font-weight="600">CO 20m</text>
+<rect x="91.0" y="57" width="180.0" height="40" fill="#00000022" rx="5"/>
+<rect x="90.0" y="56" width="180.0" height="40" fill="#4A90D9" rx="5"/>
+<text x="180.0" y="71.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-100 s1</text>
+<text x="180.0" y="84.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">fill · 30m</text>
+<rect x="271.0" y="161" width="120.0" height="40" fill="#00000022" rx="5"/>
+<rect x="270.0" y="160" width="120.0" height="40" fill="#4A90D9" rx="5"/>
+<text x="330.0" y="175.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-100 s2</text>
+<text x="330.0" y="188.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">label · 20m</text>
+<rect x="391.0" y="213" width="90.0" height="40" fill="#00000022" rx="5"/>
+<rect x="390.0" y="212" width="90.0" height="40" fill="#4A90D9" rx="5"/>
+<text x="435.0" y="227.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-100 s3</text>
+<text x="435.0" y="240.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">pack · 15m</text>
+<rect x="391.0" y="57" width="210.0" height="40" fill="#00000022" rx="5"/>
+<rect x="390.0" y="56" width="210.0" height="40" fill="#E8A838" rx="5"/>
+<text x="495.0" y="71.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-101 s1</text>
+<text x="495.0" y="84.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">fill · 35m</text>
+<rect x="631.0" y="161" width="150.0" height="40" fill="#00000022" rx="5"/>
+<rect x="630.0" y="160" width="150.0" height="40" fill="#E8A838" rx="5"/>
+<text x="705.0" y="175.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-101 s2</text>
+<text x="705.0" y="188.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">label · 25m</text>
+<rect x="781.0" y="213" width="90.0" height="40" fill="#00000022" rx="5"/>
+<rect x="780.0" y="212" width="90.0" height="40" fill="#E8A838" rx="5"/>
+<text x="825.0" y="227.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-101 s3</text>
+<text x="825.0" y="240.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">pack · 15m</text>
+<rect x="91.0" y="109" width="150.0" height="40" fill="#00000022" rx="5"/>
+<rect x="90.0" y="108" width="150.0" height="40" fill="#4A90D9" rx="5"/>
+<text x="165.0" y="123.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-102 s1</text>
+<text x="165.0" y="136.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">fill · 25m</text>
+<rect x="391.0" y="161" width="120.0" height="40" fill="#00000022" rx="5"/>
+<rect x="390.0" y="160" width="120.0" height="40" fill="#4A90D9" rx="5"/>
+<text x="450.0" y="175.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-102 s2</text>
+<text x="450.0" y="188.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">label · 20m</text>
+<rect x="361.0" y="109" width="180.0" height="40" fill="#00000022" rx="5"/>
+<rect x="360.0" y="108" width="180.0" height="40" fill="#E8A838" rx="5"/>
+<text x="450.0" y="123.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-103 s1</text>
+<text x="450.0" y="136.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">fill · 30m</text>
+<rect x="781.0" y="161" width="120.0" height="40" fill="#00000022" rx="5"/>
+<rect x="780.0" y="160" width="120.0" height="40" fill="#E8A838" rx="5"/>
+<text x="840.0" y="175.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-103 s2</text>
+<text x="840.0" y="188.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">label · 20m</text>
+<rect x="901.0" y="213" width="90.0" height="40" fill="#00000022" rx="5"/>
+<rect x="900.0" y="212" width="90.0" height="40" fill="#E8A838" rx="5"/>
+<text x="945.0" y="227.0" text-anchor="middle" font-size="10" font-weight="700" fill="white">P-103 s3</text>
+<text x="945.0" y="240.0" text-anchor="middle" font-size="9" fill="white" opacity="0.9">pack · 15m</text>
+</svg>
+  </div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot" style="background:#4A90D9"></span>standard</span><span class="legend-item"><span class="legend-dot" style="background:#E8A838"></span>premium</span><span class="legend-item"><span class="legend-dot" style="background:#E05C5C;opacity:0.5"></span>Changeover gap</span><span class="legend-item"><span class="legend-dot" style="background:#10B981"></span>Due date</span>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Resource Utilization</h2>
+  <div class="util-item"><span class="util-res">Fill-1</span><div class="util-bar-bg"><div class="util-bar" style="width:14%"></div></div><span class="util-pct">14%</span></div><div class="util-item"><span class="util-res">Fill-2</span><div class="util-bar-bg"><div class="util-bar" style="width:11%"></div></div><span class="util-pct">11%</span></div><div class="util-item"><span class="util-res">Label-1</span><div class="util-bar-bg"><div class="util-bar" style="width:18%"></div></div><span class="util-pct">18%</span></div><div class="util-item"><span class="util-res">Pack-1</span><div class="util-bar-bg"><div class="util-bar" style="width:9%"></div></div><span class="util-pct">9%</span></div>
+</div>
+
+</body>
+</html>
